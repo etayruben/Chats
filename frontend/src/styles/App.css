@@ -1,0 +1,44 @@
+.app {
+    width: 100vw;
+}
+
+.header {
+    width: 100%;
+    height: 5vh;
+    background-image: linear-gradient(red, yellow);
+    text-align: center;
+    font-size: xx-large;
+    box-shadow: 5vh;
+}
+
+.container {
+    height: 95vh;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+}
+
+.contacts {
+    width: 20vw;
+    height: auto;
+    border: 2px solid grey;
+
+}
+
+.message-area {
+    width: 80vw;
+    height: 84.5vh;
+    border: 2px solid grey;
+
+}
+
+.input-field {
+    width: 80vw;
+    height: 10vh;
+    border: 2px solid grey;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+}
