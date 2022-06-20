@@ -35,9 +35,9 @@
     overflow-y: scroll;
 }
 
-.input-field {
+.input-field-wrapper {
     width: 80vw;
-    height: 10vh;
+    height: 11vh;
     border: 2px solid grey;
 }
 

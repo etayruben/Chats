@@ -1,10 +1,9 @@
 import { useState } from "react";
-import "./styles/App.css";
 import ChatsApp from "./components/chatsApp";
 import WelcomePage from "./components/welcomePage";
 
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Etay");
 
   const handleWelcomePageClick = (inputEvent) => {
     console.log(inputEvent);

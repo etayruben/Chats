@@ -7,6 +7,7 @@ function WelcomePage(props) {
         <h1 className="Title">Enter Username Here!</h1>
         <div className="Input">
           <input
+            dir="auto"
             type="text"
             id="input"
             className="Input-text"

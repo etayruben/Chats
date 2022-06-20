@@ -1,3 +1,5 @@
+import "../styles/chats-app.css";
+
 function ChatsApp() {
   return (
     <div className="app">
@@ -9,8 +11,8 @@ function ChatsApp() {
           <div className="message-area">
             <div style={{ height: "120% " }}></div>
           </div>
-          <div className="input-field">
-            <div>Type a message</div>
+          <div className="input-field-div">
+            <input dir="auto"></input>
           </div>
         </div>
         <div className="contacts">
