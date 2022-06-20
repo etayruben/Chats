@@ -11,7 +11,7 @@
     box-shadow: 5vh;
 }
 
-.container {
+.chat-container {
     height: 95vh;
     margin: auto;
     display: flex;
@@ -35,10 +35,18 @@
     overflow-y: scroll;
 }
 
-.input-field-wrapper {
-    width: 80vw;
-    height: 11vh;
-    border: 2px solid grey;
+.text-area {
+    min-height: 150px;
+    max-height: 250px;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
 }
 
 .chat {
@@ -61,5 +69,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-  }
+    background: #b30000;
+}

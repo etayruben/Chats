@@ -1,23 +1,16 @@
 import "../styles/chats-app.css";
+import Chat from "./chat";
+import Contacts from "./contacts";
 
-function ChatsApp() {
+function ChatsApp(props) {
   return (
     <div className="app">
       <div className="header">
         <b>Welcome to Chats!</b>
       </div>
-      <div className="container">
-        <div className="chat">
-          <div className="message-area">
-            <div style={{ height: "120% " }}></div>
-          </div>
-          <div className="input-field-wrapper">
-            <input dir="auto"></input>
-          </div>
-        </div>
-        <div className="contacts">
-          <div style={{ height: "120%" }}></div>
-        </div>
+      <div className="chat-container">
+        <Chat username={props.username} />
+        <Contacts />
       </div>
     </div>
   );
