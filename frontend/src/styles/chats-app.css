@@ -1,5 +1,6 @@
 .app {
     width: 100vw;
+    height: 100vh;
 }
 
 .header {
@@ -28,7 +29,7 @@
 }
 
 .message-area {
-    background-image: url("../images/background-image.jpg");
+    background-image: url();
     width: 80vw;
     height: 84.5vh;
     border: 2px solid grey;
