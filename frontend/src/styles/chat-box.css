@@ -6,22 +6,23 @@
 }
 
 .message {
-  overflow: hidden;
-  border-radius: 8px;
   position: relative;
-  background-color: #cfe9ba;
+  margin-left: auto;
+  margin-right: 0;
   width: fit-content;
   max-width: 500px;
+  line-break: anywhere;
   padding: 4px;
   font-weight: 500;
   box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  border-radius: 8px;
+  background-color: #cfe9ba;
   margin-bottom: 10px;
 }
 
 .received-message {
-  overflow: hidden;
-  border-radius: 8px;
   position: relative;
+  border-radius: 8px;
   background-color: white;
   width: fit-content;
   max-width: 500px;
@@ -29,6 +30,8 @@
   font-weight: 500;
   box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
   margin-bottom: 10px;
+  line-break: anywhere;
+
 }
 
 /* .message {
