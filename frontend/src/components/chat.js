@@ -24,7 +24,7 @@ function Chat(props) {
   };
 
   const handleClick = (e) => {
-    if (e.key === "Enter") {
+    if ((e.key === "Enter") & !e.shiftKey) {
       props.webSocket.send(
         JSON.stringify({ username: props.username, message: e.target.value })
       );
