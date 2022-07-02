@@ -4,7 +4,7 @@ function WelcomePage(props) {
   return (
     <div className="welcome-page">
       <div className="Wrapper">
-        <h1 className="Title">Enter Username Here!</h1>
+        <h1 className="Title">Enter Full Name Here!</h1>
         <div className="Input">
           <input
             dir="auto"
