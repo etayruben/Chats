@@ -1,25 +1,21 @@
-from logging import info, warning, error, debug
 import asyncio
 import websockets
 
 PORT = 7890
 
-info(f"Server is listening on Port {PORT}")
+print(f"Server is listening on Port {PORT}")
 
 connected = set()
 
 
 async def main(websocket, path):
-    info("A client just connected")
+    connected.add(websocket)
     try:
         async for message in websocket:
-            info(f"Received message from client: {message}")
             for conn in connected:
-                if conn != websocket:
-                    await conn.send(f"Someone said: {message}")
-            await websocket.send(message)
+                await conn.send(f"{message}")
     except websockets.exceptions.ConnectionClosed:
-        info("A Client just disconnected")
+        print("A Client just disconnected")
 
     finally:
         connected.remove(websocket)
