@@ -9,7 +9,7 @@ function ChatsApp(props) {
         <b>Welcome to Chats!</b>
       </div>
       <div className="chat-container">
-        <Chat username={props.username} />
+        <Chat webSocket={props.webSocket} room={1} username={props.username} />
         <Contacts />
       </div>
     </div>
