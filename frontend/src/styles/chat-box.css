@@ -24,7 +24,6 @@
   box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
   margin-bottom: 10px;
   line-break: anywhere;
-
 }
 
 #timestamp {
@@ -38,24 +37,3 @@
 #username {
   text-decoration: underline;
 }
-
-/* .message {
-    color: #000;
-    clear: both;
-    line-height: 18px;
-    font-size: 15px;
-    padding: 8px;
-    position: relative;
-    margin: 8px 0;
-    max-width: 85%;
-    word-wrap: break-word;
-    z-index: -1;
-  }
-  
-  .message:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-  } */
