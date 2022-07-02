@@ -8,7 +8,7 @@ print(f"Server is listening on Port {PORT}")
 connected = set()
 
 
-async def main(websocket, path):
+async def handler(websocket, path):
     connected.add(websocket)
     try:
         async for message in websocket:
@@ -21,7 +21,7 @@ async def main(websocket, path):
         connected.remove(websocket)
 
 
-start_server = websockets.serve(main, "localhost", PORT)
+start_server = websockets.serve(handler, "localhost", PORT)
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(start_server)
