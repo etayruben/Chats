@@ -17,13 +17,26 @@
   background-color: white;
   width: fit-content;
   max-width: 500px;
+  min-width: 75px;
   padding: 4px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: large;
   box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
   margin-bottom: 10px;
   line-break: anywhere;
 
+}
+
+#timestamp {
+  position: absolute;
+  font-size: .85em;
+  font-weight: 300;
+  bottom: 5px;
+  right: 5px;
+}
+
+#username {
+  text-decoration: underline;
 }
 
 /* .message {

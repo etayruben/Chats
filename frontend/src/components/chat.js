@@ -1,10 +1,9 @@
 import MessagesArea from "./messagesArea";
 import TextArea from "./textArea";
-import { useState } from "react";
 
 function Chat(props) {
   props.webSocket.onmessage = function (event) {
-    setMessages(messages.concat(JSON.parse(event.data)));
+    props.setMessages(props.messages.concat(JSON.parse(event.data)));
   };
 
   props.webSocket.onclose = function (event) {
@@ -23,21 +22,24 @@ function Chat(props) {
     console.error(`[error] ${error.message}`);
   };
 
-  const handleClick = (e) => {
+  const handleKeyClick = (e) => {
     if ((e.key === "Enter") & !e.shiftKey) {
       props.webSocket.send(
-        JSON.stringify({ username: props.username, message: e.target.value })
+        JSON.stringify({
+          username: props.username,
+          message: e.target.value,
+          timestamp: new Date().getTime(),
+          room: props.room,
+        })
       );
       e.target.value = null;
     }
   };
 
-  const [messages, setMessages] = useState([]);
-
   return (
     <div className="chat">
-      <MessagesArea messages={messages} username={props.username} />
-      <TextArea handleClick={handleClick} />
+      <MessagesArea messages={props.messages} username={props.username} />
+      <TextArea handleKeyClick={handleKeyClick} />
     </div>
   );
 }

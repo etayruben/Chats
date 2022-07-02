@@ -1,4 +1,5 @@
 import "../styles/chat-box.css";
+import Algorithms from "../utils/algorithms";
 
 function MessagesArea(props) {
   return (
@@ -11,7 +12,14 @@ function MessagesArea(props) {
               : "my-message message "
           }
         >
-          {message.message}
+          <div id="username">
+            {message.username.charAt(0).toUpperCase() +
+              message.username.slice(1)}
+          </div>
+          <p>{message.message}</p>
+          <div id="timestamp">
+            {Algorithms.prettyDate(new Date(message.timestamp))}
+          </div>
         </div>
       ))}
     </div>

@@ -5,7 +5,7 @@ function TextArea(props) {
         dir="auto"
         placeholder="type a message here!"
         className="text-area"
-        onKeyDown={props.handleClick}
+        onKeyDown={props.handleKeyClick}
       />
     </div>
   );
