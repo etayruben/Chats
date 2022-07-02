@@ -5,6 +5,7 @@ function MessagesArea(props) {
     <div className="message-area">
       {props.messages.map((message) => (
         <div
+          key={message.message}
           className={
             props.username === message.username ? "message" : "received-message"
           }
