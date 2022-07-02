@@ -1,0 +1,12 @@
+[
+  {
+    "roomName": "Lobby",
+    "roomID": 0,
+    "roomPicture": "../images/lobby.jpg"
+  },
+  {
+    "roomName": "Lobby 2",
+    "roomID": 1,
+    "roomPicture": "../images/lobby2.jpg"
+  }
+]
