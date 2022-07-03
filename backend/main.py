@@ -1,6 +1,8 @@
 import asyncio
 import websockets
 
+from connection import Conversation, Users
+
 PORT = 7890
 
 print(f"Server is listening on Port {PORT}")
