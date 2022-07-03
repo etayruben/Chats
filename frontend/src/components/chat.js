@@ -1,12 +1,12 @@
 import MessagesArea from "./messagesArea";
 import TextArea from "./textArea";
 
-function Chat(props) {
-  props.webSocket.onmessage = function (event) {
-    props.setMessages(props.messages.concat(JSON.parse(event.data)));
+function Chat({ webSocket, messages, setMessages, username, room }) {
+  webSocket.onmessage = function (event) {
+    setMessages(messages.concat(JSON.parse(event.data)));
   };
 
-  props.webSocket.onclose = function (event) {
+  webSocket.onclose = function (event) {
     if (event.wasClean) {
       console.log(
         `[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`
@@ -18,19 +18,19 @@ function Chat(props) {
     }
   };
 
-  props.webSocket.onerror = function (error) {
+  webSocket.onerror = function (error) {
     console.error(`[error] ${error.message}`);
   };
 
   const handleKeyClick = (e) => {
     if ((e.key === "Enter") & !e.shiftKey) {
       let date = new Date();
-      props.webSocket.send(
+      webSocket.send(
         JSON.stringify({
-          username: props.username,
+          username: username,
           message: e.target.value,
           timestamp: +date,
-          room: props.room,
+          room: room,
           msg_hash: (+date + Math.random() * 100).toString(32),
         })
       );
@@ -40,7 +40,7 @@ function Chat(props) {
 
   return (
     <div className="chat">
-      <MessagesArea messages={props.messages} username={props.username} />
+      <MessagesArea messages={messages} username={username} />
       <TextArea handleKeyClick={handleKeyClick} />
     </div>
   );

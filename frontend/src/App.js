@@ -7,17 +7,11 @@ const webSocket = new WebSocket("ws://localhost:7890");
 function App() {
   const [username, setUsername] = useState("");
 
-  const handleWelcomePageClick = (inputEvent) => {
-    if (inputEvent.key === "Enter") setUsername(inputEvent.target.value);
-  };
+  if (username) {
+    return <ChatsApp username={username} webSocket={webSocket} />;
+  }
 
-  return username !== "" ? (
-    <div>
-      <ChatsApp webSocket={webSocket} username={username} />
-    </div>
-  ) : (
-    <WelcomePage handleWelcomePageClick={handleWelcomePageClick} />
-  );
+  return <WelcomePage setUsername={setUsername} />;
 }
 
 export default App;

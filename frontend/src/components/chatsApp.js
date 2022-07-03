@@ -3,7 +3,7 @@ import "../styles/chats-app.css";
 import Chat from "./chat";
 import Contacts from "./contacts";
 
-function ChatsApp(props) {
+function ChatsApp({ username, webSocket }) {
   const [room, setRoom] = useState(1);
   const [messages, setMessages] = useState([]);
 
@@ -20,9 +20,9 @@ function ChatsApp(props) {
         <Chat
           messages={messages}
           setMessages={setMessages}
-          webSocket={props.webSocket}
+          webSocket={webSocket}
           room={room}
-          username={props.username}
+          username={username}
         />
         <Contacts handleContactClick={handleContactClick} setRoom={setRoom} />
       </div>
