@@ -20,8 +20,6 @@
 
 .contacts {
     position: relative;
-    display: flex;
-    flex-direction: column;
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 20vw;
@@ -33,19 +31,30 @@
 
 .lobby-picture {
     vertical-align: middle;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     border-radius: 25%;
 }
 
 .contact-card-container {
     display: flex;
+    border: 1px solid #969696;
     width: 100%;
+    height: 100px;
+}
+
+.contact-card-container>div {
+    padding: 40px 20px;
+    font-size: large;
+    user-select: -moz-none;
+    user-select: none;
+    user-select: none;
 }
 
 .contact-card {
-    min-height: 150px;
     width: 100%;
+    height: 100%;
+
 }
 
 .message-area {

@@ -2,11 +2,11 @@
   {
     "roomName": "Lobby",
     "roomID": 0,
-    "roomPicture": "../images/lobby.jpg"
+    "roomPicture": "lobby.jpg"
   },
   {
     "roomName": "Lobby 2",
     "roomID": 1,
-    "roomPicture": "../images/lobby2.jpg"
+    "roomPicture": "lobby2.jpg"
   }
 ]

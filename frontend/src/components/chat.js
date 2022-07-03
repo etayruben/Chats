@@ -24,12 +24,14 @@ function Chat(props) {
 
   const handleKeyClick = (e) => {
     if ((e.key === "Enter") & !e.shiftKey) {
+      let date = new Date();
       props.webSocket.send(
         JSON.stringify({
           username: props.username,
           message: e.target.value,
-          timestamp: new Date().getTime(),
+          timestamp: +date,
           room: props.room,
+          msg_hash: (+date + Math.random() * 100).toString(32),
         })
       );
       e.target.value = null;

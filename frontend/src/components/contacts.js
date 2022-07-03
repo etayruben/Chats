@@ -4,18 +4,17 @@ function Contacts(props) {
   return (
     <div className="contacts">
       {rooms.map((room) => (
-        <div className="contact-card-container">
+        <div
+          key={room.roomID}
+          onClick={(e) => props.handleContactClick(e, room.roomID)}
+          className="contact-card-container"
+        >
           <img
-            src="../images/background-image.jpg"
+            src={"../images/" + room.roomPicture}
             alt={room.roomName}
             className="lobby-picture"
           />
-          <div
-            onClick={(e) => props.handleContactClick(e, room.roomID)}
-            className="contact-card"
-          >
-            {room.roomName}
-          </div>
+          <div className="contact-card">{room.roomName}</div>
         </div>
       ))}
     </div>
