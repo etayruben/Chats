@@ -1,11 +1,11 @@
-function TextArea(props) {
+function TextArea({ handleKeyClick }) {
   return (
     <div dir="auto" className="input-wrap">
       <textarea
         dir="auto"
         placeholder="type a message here!"
         className="text-area"
-        onKeyDown={props.handleKeyClick}
+        onKeyDown={handleKeyClick}
       />
     </div>
   );

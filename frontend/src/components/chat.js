@@ -1,7 +1,7 @@
 import MessagesArea from "./messagesArea";
 import TextArea from "./textArea";
 
-function Chat({ webSocket, messages, setMessages, username, room }) {
+function Chat({ webSocket, messages, setMessages, fullName, room }) {
   webSocket.onmessage = function (event) {
     setMessages(messages.concat(JSON.parse(event.data)));
   };
@@ -27,10 +27,11 @@ function Chat({ webSocket, messages, setMessages, username, room }) {
       let date = new Date();
       webSocket.send(
         JSON.stringify({
-          username: username,
+          fullName: fullName,
           message: e.target.value,
           timestamp: +date,
           room: room,
+          action: "message",
           msg_hash: (+date + Math.random() * 100).toString(32),
         })
       );
@@ -40,7 +41,7 @@ function Chat({ webSocket, messages, setMessages, username, room }) {
 
   return (
     <div className="chat">
-      <MessagesArea messages={messages} username={username} />
+      <MessagesArea messages={messages} fullName={fullName} />
       <TextArea handleKeyClick={handleKeyClick} />
     </div>
   );
