@@ -1,17 +1,23 @@
 import { useState } from "react";
 import ChatsApp from "./components/chatsApp";
-import WelcomePage from "./components/welcomePage";
+import WelcomePage from "./components/welcome-page/welcomePage";
+import { io } from "socket.io-client";
 
-const webSocket = new WebSocket("ws://localhost:7890");
+const socket = io.connect("http://localhost:5000", { method: "POST" });
 
+socket.on("connect", () => {
+  socket.send("testing");
+});
 function App() {
-  const [username, setUsername] = useState("");
+  const [fullName, setUsername] = useState("");
 
-  if (username) {
-    return <ChatsApp username={username} webSocket={webSocket} />;
-  }
+  if (fullName === "User Taken!")
+    return fetch("userTaken.html")
+      .then((response) => response.text())
+      .then((text) => (document.getElementById("userTaken").innerHTML = text));
+  if (fullName) return <ChatsApp fullName={fullName} socket={socket} />;
 
-  return <WelcomePage setUsername={setUsername} />;
+  return <WelcomePage socket={socket} setUsername={setUsername} />;
 }
 
 export default App;

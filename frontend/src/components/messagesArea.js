@@ -10,7 +10,7 @@ function MessagesArea({ messages, fullName }) {
             fullName !== message.fullName ? "message" : "my-message message "
           }
         >
-          <div id="fullName">
+          <div id="full-name">
             {message.fullName.charAt(0).toUpperCase() +
               message.fullName.slice(1)}
           </div>

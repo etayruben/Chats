@@ -1,12 +1,12 @@
 import MessagesArea from "./messagesArea";
 import TextArea from "./textArea";
 
-function Chat({ webSocket, messages, setMessages, fullName, room }) {
-  webSocket.onmessage = function (event) {
+function Chat({ socket, messages, setMessages, fullName, room }) {
+  socket.onmessage = function (event) {
     setMessages(messages.concat(JSON.parse(event.data)));
   };
 
-  webSocket.onclose = function (event) {
+  socket.onclose = function (event) {
     if (event.wasClean) {
       console.log(
         `[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`
@@ -18,14 +18,14 @@ function Chat({ webSocket, messages, setMessages, fullName, room }) {
     }
   };
 
-  webSocket.onerror = function (error) {
+  socket.onerror = function (error) {
     console.error(`[error] ${error.message}`);
   };
 
   const handleKeyClick = (e) => {
     if ((e.key === "Enter") & !e.shiftKey) {
       let date = new Date();
-      webSocket.send(
+      socket.send(
         JSON.stringify({
           fullName: fullName,
           message: e.target.value,
