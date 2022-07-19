@@ -1,4 +1,5 @@
 from connections import app, socketio
+from mongoDB import DB
 from flask_socketio import send, join_room, leave_room
 
 
@@ -13,7 +14,6 @@ def signin():
 
 @app.route("/signup", methods=["POST"])
 def signup():
-    print("signup")
     return "Yay"
 
 
@@ -39,4 +39,5 @@ def on_leave(data):
 
 
 if __name__ == '__main__':
+    print(DB.create_user(phone_number="0525777197", full_name="Etay", password="12345678"))
     socketio.run(app=app, host="0.0.0.0", port=5000)
