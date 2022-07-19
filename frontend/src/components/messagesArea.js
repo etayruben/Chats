@@ -1,13 +1,15 @@
 import "../styles/chat-box.css";
 import Algorithms from "../utils/algorithms";
 
-function MessagesArea({ messages, fullName }) {
+function MessagesArea({ messages, userProperties }) {
   return (
     <div className="message-area">
       {messages.map((message) => (
         <div
           className={
-            fullName !== message.fullName ? "message" : "my-message message "
+            userProperties.phone_number !== message.phone_number
+              ? "message"
+              : "my-message message "
           }
         >
           <div id="full-name">

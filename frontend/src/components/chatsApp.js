@@ -3,7 +3,7 @@ import "../styles/chats-app.css";
 import Chat from "./chat";
 import Contacts from "./contacts";
 
-function ChatsApp({ fullName, socket }) {
+function ChatsApp({ userProperties, socket }) {
   const [room, setRoom] = useState(1);
   const [messages, setMessages] = useState([]);
 
@@ -22,7 +22,7 @@ function ChatsApp({ fullName, socket }) {
           setMessages={setMessages}
           socket={socket}
           room={room}
-          fullName={fullName}
+          userProperties={userProperties}
         />
         <Contacts handleContactClick={handleContactClick} setRoom={setRoom} />
       </div>
