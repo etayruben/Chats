@@ -2,14 +2,21 @@ import { useState } from "react";
 import "../../styles/welcome-page.css";
 import API from "../../utils/API";
 
-const WelcomePage = ({ setUsername, socket }) => {
+const WelcomePage = ({ setUserProperties }) => {
   const [signIn, setSignIn] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     let { fullName, password, phoneNumber } = e.target;
     if (signIn) {
-      API.signIn(fullName, password, phoneNumber);
+      API.signIn(fullName, password, phoneNumber).then(
+        ({ token, fullName, phoneNumber }) =>
+          setUserProperties({
+            fullName: fullName,
+            token: token,
+            phoneNumber: phoneNumber,
+          })
+      );
     } else {
       API.signup(fullName, password, phoneNumber);
     }

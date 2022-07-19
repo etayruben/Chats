@@ -6,15 +6,16 @@ import { io } from "socket.io-client";
 const socket = io.connect("ws://localhost:5000");
 
 function App() {
-  const [fullName, setUsername] = useState("");
+  const [userProperties, setUserProperties] = useState({
+    fullName: "Etay",
+    phoneNumber: null,
+    token: null,
+  });
 
-  if (fullName === "User Taken!")
-    return fetch("userTaken.html")
-      .then((response) => response.text())
-      .then((text) => (document.getElementById("userTaken").innerHTML = text));
-  if (fullName) return <ChatsApp fullName={fullName} socket={socket} />;
+  if (userProperties.fullName)
+    return <ChatsApp userProperties={userProperties} socket={socket} />;
 
-  return <WelcomePage socket={socket} setUsername={setUsername} />;
+  return <WelcomePage setUserProperties={setUserProperties} />;
 }
 
 export default App;
