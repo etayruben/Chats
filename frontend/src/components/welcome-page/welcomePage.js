@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/welcome-page.css";
+import API from "../../utils/API";
 
 const WelcomePage = ({ setUsername, socket }) => {
   const [signIn, setSignIn] = useState(false);
@@ -7,20 +8,23 @@ const WelcomePage = ({ setUsername, socket }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     let { fullName, password, phoneNumber } = e.target;
-    console.log(fullName.value, password.value, phoneNumber.value);
+    if (signIn) {
+      API.signIn(fullName, password, phoneNumber);
+    } else {
+      API.signup(fullName, password, phoneNumber);
+    }
   };
 
   return (
     <div className="welcome-page">
       <div className="Wrapper">
-        <h1 className="Title">Enter Full Name And Phone Number</h1>
+        <h1 className="Title">Enter Your Credentials Here</h1>
         <form onSubmit={onSubmit}>
           <div className="Input">
             <input
               dir="auto"
               type="text"
               id="fullName"
-              value={"Etay"}
               name="full-name"
               className="Input-text"
               placeholder="Your Full Name, e.g. Nitsan Eilon"
@@ -34,7 +38,6 @@ const WelcomePage = ({ setUsername, socket }) => {
               style={{ marginTop: "40px" }}
               dir="auto"
               type="password"
-              value={"q1w4e9r2t4"}
               id="password"
               name="password"
               className="Input-text"
@@ -51,7 +54,6 @@ const WelcomePage = ({ setUsername, socket }) => {
               type="text"
               id="phoneNumber"
               name="phoneNumber"
-              value={"0525777197"}
               className="Input-text"
               placeholder="0525777107"
             />

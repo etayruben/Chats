@@ -3,11 +3,8 @@ import ChatsApp from "./components/chatsApp";
 import WelcomePage from "./components/welcome-page/welcomePage";
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://localhost:5000", { method: "POST" });
+const socket = io.connect("ws://localhost:5001");
 
-socket.on("connect", () => {
-  socket.send("testing");
-});
 function App() {
   const [fullName, setUsername] = useState("");
 
