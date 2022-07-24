@@ -3,7 +3,6 @@ from connections import app, socketio
 from mongoDB import DB
 from flask_socketio import join_room, leave_room
 
-
 connected_clients = {}
 
 
@@ -13,13 +12,13 @@ def signin():
     # TODO: Check if the user is in the data base, If yes, /
     #  Generate a Token for the user and return either the token or User is not registered
 
-    return "Yay"
+    return ""
 
 
 @app.route("/signup", methods=["POST"])
 def signup():
     # DB.create_user()
-    return "Yay"
+    return ""
 
 
 @socketio.on('message')
@@ -43,7 +42,7 @@ def on_disconnect():
 
 @socketio.on("connect")
 def on_connect():
-
+    pass
 
 
 @socketio.on('join')
